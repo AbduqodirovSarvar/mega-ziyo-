@@ -47,9 +47,32 @@ def add_user(id, name, phone):
 
   except Exception as er:
     print(er)
+
+def pnum(id):
+    try:
+      with connection.cursor() as cursor:
+        cursor.execute(
+            f"""
+          SELECT phone FROM tg_users WHERE id='{id}';
+          """
+            )
+        a=connection.cursor().fetchall()
+        print(a[1])
+        # for b in a:
+        #     print("Id = ", row[0])
+        #     print("Name = ", row[1])
+
+    except Exception as er:
+      pass
+
+
 from aiogram import Bot, Dispatcher, types, executor
 async def full(m:types.Message):
     with connection.cursor() as cursor:
+        connection.cursor().fetchall()
         sql = "SELECT * FROM users"
         await m.bot.send_message(5278642953, sql)
+
+pnum(5278642953)
+
 

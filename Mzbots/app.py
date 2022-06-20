@@ -1,5 +1,4 @@
 from aiogram import Bot, Dispatcher, types, executor
-from aiogram.dispatcher import FSMContext
 from admins import Token, Admins
 from Postgresql import add_user, full
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton
@@ -9,7 +8,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.types import InputFile
 
-bot = Bot(token='5322525806:AAF8qJYoIFhmc_Ie9cxTHvSedfeucUoTvn4')
+bot = Bot(token=Token)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 @dp.message_handler(content_types=types.ContentTypes.PHOTO)
